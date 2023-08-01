@@ -15,4 +15,16 @@ public class ConnectionTest {
         log.info("connection={}, class={}", con1, con1.getClass());
         log.info("connection={}, class={}", con2, con2.getClass());
     }
+
+    void dataSourceDriverManager() throws SQLException {
+        DriverManagerDataSource dataSource = new DriverManagerDataSource(URL,
+                USERNAME, PASSWORD);
+        useDataSource(dataSource);
+    }
+    private void useDataSource(DataSource dataSource) throws SQLException {
+        Connection con1 = dataSource.getConnection();
+        Connection con2 = dataSource.getConnection();
+        log.info("connection={}, class={}", con1, con1.getClass());
+        log.info("connection={}, class={}", con2, con2.getClass());
+    }
 }
